@@ -6,6 +6,8 @@ import { selectUser, selectUsers } from "../store/selectors";
 import { useEffect } from "react";
 import { getUser, loadUsersInit } from "../store/actions";
 import keycloak from '../../keycloak';
+import './user-dashboard.scss';
+import PMNavbar from '../../shared/sidebar/PMNavbar';
 
 function UserDashboard() {
 
@@ -30,11 +32,12 @@ function UserDashboard() {
     }, [dispatch])
 
     return (
-        <div >
+        <div className='user-dashboard'>
+            <PMNavbar />
             {keycloak.getAuth() && user !== null ?
                <div><h1>{user.name}</h1>
                <h2>{user.email}</h2></div>
-: "Loading"}
+            : "Loading"}
         </div>
     )
 }

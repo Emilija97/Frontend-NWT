@@ -1,8 +1,8 @@
 @import "../styles/theme.scss";
 
-$header-height: 100px;
+$header-height: 120px;
 
-.ni-header {
+.pm-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -12,13 +12,13 @@ $header-height: 100px;
   &__logo {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     flex: 2;
   }
 
   &__logo-image {
-    height: 40px;
+    height: 100px;
     width: auto;
     margin: 8px;
   }
@@ -37,19 +37,14 @@ $header-height: 100px;
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
   }
 
-  &__menu {
+  &__setter {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
-
-  &__dialog {
-    .MuiPaper-elevation24 {
-      box-shadow: none;
-    }
+    justify-content: end;
+    margin-right: 30px;
   }
 }

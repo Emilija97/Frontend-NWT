@@ -1,10 +1,11 @@
 @import './theme.scss';
+@import '../../theme/theme.scss';
 
 .pm-button {
     border: 0px;
     border-radius: $large-height / 2;
     font-size: $body-text-size;
-  
+
     &--mini {
       width: $mini-width;
       height: $mini-height;
@@ -41,8 +42,12 @@
       border: 0px;
   
       &--primary {
-        background-color: $primary;
-        color: white;
+        @include themed() {
+          background-color: t('button-bg-color');
+          color: t('text-color');
+        }
+        // background-color: $primary;
+        // color: white;
       }
   
       &--secondary {

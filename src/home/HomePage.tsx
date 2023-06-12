@@ -1,26 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { Redirect, useHistory } from "react-router";
 import { Link, useNavigate } from "react-router-dom";
-// import "../shared/styles/ni-button.scss";
-import { RootState } from "../store/store";
-// import "./home-page.scss";
-import { useKeycloak } from "@react-keycloak/web";
-import keycloak from "../keycloak"
-import { User } from "../users/store/user-state";
-import { selectUser, selectUsers } from "../users/store/selectors";
 import { getUser, loadUsersInit } from "../users/store/actions";
 import PMHeader from "../shared/header/PMHeader";
 import './home-page.scss'
 
 function HomePage() {
-//   const history = useHistory();
-//   const { loggedUserType } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
   const [userKeycloakId,] = useState(localStorage.getItem("userKeycloakId"))
   const [username,] = useState(localStorage.getItem("username"))
-  const user = useSelector((state: RootState) => selectUser(state, userKeycloakId ? userKeycloakId : ""))
-  console.log(user)
+  // const user = useSelector((state: RootState) => selectUser(state, userKeycloakId ? userKeycloakId : ""))
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -29,7 +18,7 @@ function HomePage() {
   }
 
     
-  console.log(keycloak.getToken())
+  // console.log(keycloak.getToken())
 
   // useEffect(() => {
   //   console.log(userKeycloakId)
@@ -40,7 +29,7 @@ function HomePage() {
 
   return (
     <div className="home-page">
-      <PMHeader backArrow={false} logo={true} menu={false} title="EMILY - Project Management" />
+      <PMHeader backArrow={true} logo={true} themeToggle={true} title="EMILY - Project Management" />
       <div className="home-page__body">
         <div className="home-page__body-title">Welcome to Project Management Dashboard! </div>
         <div className="home-page__welcome-text">

@@ -1,0 +1,61 @@
+@import "./_theme.scss";
+
+.theme-setter {
+    height: 50px;
+    width: 200px;
+    border-radius: 25px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    @include themed() {
+        color: t('text-color');
+        background: t('toggle-btn-inactive-color');
+    }
+
+    &__image {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+
+    &__dark, &__light {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+
+    &__dark {
+        display: flex;
+        flex: 1;
+        justify-content: right;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__light {
+        display: flex;
+        flex: 1;
+        justify-content: left;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__text {
+        display: flex;
+        flex: 1;
+        @include themed() {
+            color: t('text-color');
+        }
+    }
+
+    &__status-selected {
+        border-radius: 25px;
+        margin: auto;
+        position: relative;
+        @include themed() {
+            background: t('toggle-btn-selected-color');
+        }
+    }
+}

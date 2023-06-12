@@ -1,0 +1,10 @@
+@import '../../theme/theme.scss';
+
+.user-dashboard {
+    @include themed() {
+        color: t('text-color');
+        background: t('bg-color');
+      }
+    min-height: 100%;
+    display: flex;
+}
