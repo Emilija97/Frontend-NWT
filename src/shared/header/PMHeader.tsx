@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './pm-header.scss'
 import PMIconButton from '../icon-button/PMIconButton';
-import { LogoImage, BackArrowImage } from '../../assets';
-import ThemeSetter from '../../theme/ThemeSetter';
+import { LogoImage, BackArrowImage, LogoutImage } from '../../assets';
+import keycloak from "../../keycloak";
 
 interface IPMHeader {
   backArrow: boolean,
-  themeToggle: boolean,
+//   themeToggle: boolean,
+  logout: boolean,
   logo: boolean,
   title: string,
   className?: string,
@@ -24,6 +25,10 @@ function PMHeader(props: IPMHeader) {
             navigate(-1);
     }
 
+    const handleLogOut = () => {
+        keycloak.doLogout();
+    }
+
     const titleStyle = (): string => {
         return props.logo ? "pm-header__logo-title" : "pm-header__title";
     }
@@ -36,9 +41,13 @@ function PMHeader(props: IPMHeader) {
                 <img hidden={!props.logo} className="pm-header__logo-image" alt="" src={LogoImage} />
                 <div className={titleStyle()}>{props.title}</div>
             </div>
-            <div className="pm-header__setter">
-                <ThemeSetter hidden={!props.themeToggle} />
+            <div className='pm-header__logout '>
+                <PMIconButton hidden={!props.logout} onClick={handleLogOut}
+                srcIcon={LogoutImage} className={`${props.logout ? `pm-button__circle--icon-header` : `pm-button__circle`}`} />
             </div>
+            {/* <div className="pm-header__setter">
+                <ThemeSetter hidden={!props.themeToggle} />
+            </div> */}
       </div>
     )
 }

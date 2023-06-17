@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
-import UserDashboard from "../users/components/UserDashboard"
+import UserDashboard from "../shared/wrapper/PMWrapper"
 import HomePage from '../home/HomePage';
+import PMWrapper from '../shared/wrapper/PMWrapper';
 
 
 function DefinedRoutes() {
@@ -10,7 +11,7 @@ function DefinedRoutes() {
         return (
             // <BrowserRouter>
                 <Routes>
-                    <Route path="/users" element={<UserDashboard/>}></Route>
+                    <Route path="/dashboard" element={<PMWrapper/>}></Route>
                 </Routes>
             // </BrowserRouter>
         )

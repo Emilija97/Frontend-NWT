@@ -1,17 +1,25 @@
-$text--light: #1b1c1d;
+$text--light: #161819;
 $text--dark: white;
 $bg--light: white;
-$bg--dark: #1b1c1d;
-$border--light: #1b1c1d;
+$bg--dark: #161819;
+$border--light: #161819;
 $border--dark: white;
 $button--bg--light: #eecabe;
 $button--bg--dark: #c33506;
+$button-icon-bg--light: #eecabe;
+$button-icon-bg--dark: #fff;
+$button-icon-header-bg--light: #fff;
+$button-icon-header-bg--dark: #fff;
 $toggle-btn--day-dark: #0692C1;
 $toggle-btn--day-light: #A9E7FC;
 $toggle-btn--inactive--dark: #3d3f41;
 $toggle-btn--selected--dark: #2b2d2e;
 $toggle-btn--selected--light: #eecabe;
-$toggle-btn--inactive--light: #faf0ed;
+$toggle-btn--inactive--light: #faefec;
+$navbar-bg--dark: #1f2123;
+$navbar-bg--light: #f1d5cb;
+$title-bg--dark: #933666;
+$title-bg--light: #eac7d9;
 
 $themes: (
     light: (
@@ -20,7 +28,11 @@ $themes: (
         border-color: $border--light,
         button-bg-color: $button--bg--light,
         toggle-btn-selected-color: $toggle-btn--selected--light,
-        toggle-btn-inactive-color: $toggle-btn--inactive--light
+        toggle-btn-inactive-color: $toggle-btn--inactive--light,
+        navbar-bg-color: $navbar-bg--light,
+        button-icon-bg-color: $button-icon-bg--light,
+        title-bg-color: $title-bg--light,
+        button-icon-header-bg-color: $button-icon-header-bg--light
     ),
     dark: (
         bg-color: $bg--dark,
@@ -28,7 +40,11 @@ $themes: (
         border-color: $border--dark,
         button-bg-color: $button--bg--dark,
         toggle-btn-selected-color: $toggle-btn--selected--dark,
-        toggle-btn-inactive-color: $toggle-btn--inactive--dark
+        toggle-btn-inactive-color: $toggle-btn--inactive--dark,
+        navbar-bg-color: $navbar-bg--dark,
+        button-icon-bg-color: $button-icon-bg--dark,
+        title-bg-color: $title-bg--dark,
+        button-icon-header-bg-color: $button-icon-header-bg--dark
     ),
 );
 

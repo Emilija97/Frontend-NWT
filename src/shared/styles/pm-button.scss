@@ -1,5 +1,5 @@
 @import './theme.scss';
-@import '../../theme/theme.scss';
+@import '../../theme/_theme.scss';
 
 .pm-button {
     border: 0px;
@@ -103,10 +103,31 @@
     &__circle {
       border-radius: 50%;
       background: none;
+      align-items: center;
   
       &--primary {
-        background-color: $primary;
-        color: white;
+        // background-color: $primary;
+        // color: white;
+        @include themed() {
+          background: t('button-icon-bg-color');
+          color: t('text-color');
+        }
+      }
+
+      &--icon {
+        @include themed() {
+          background: t('button-icon-bg-color');
+        }
+        width: 40px;
+        height: 40px;
+      }
+
+      &--icon-header {
+        @include themed() {
+          background: t('button-icon-header-bg-color');
+        }
+        width: 42px;
+        height: 40px;
       }
   
       &--small {

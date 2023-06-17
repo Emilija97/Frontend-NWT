@@ -1,7 +1,5 @@
 @import "../styles/theme.scss";
 
-$header-height: 120px;
-
 .pm-header {
   display: flex;
   flex-direction: row;
@@ -12,13 +10,13 @@ $header-height: 120px;
   &__logo {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     flex: 2;
   }
 
   &__logo-image {
-    height: 100px;
+    height: 70px;
     width: auto;
     margin: 8px;
   }
@@ -29,8 +27,18 @@ $header-height: 120px;
   }
 
   &__title {
-    font-size: $body-text-size;
+    // font-size: $body-text-size;
     font-weight: bold;
+
+    &--large {
+      font-size: $h4;
+      letter-spacing: 4px;
+    }
+
+    &--normal {
+      font-size: $body-text-size;
+      // letter-spacing: 4px;
+    }
   }
 
   &__arrow {
@@ -40,11 +48,11 @@ $header-height: 120px;
     justify-content: left;
   }
 
-  &__setter {
+  &__logout {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: end !important;
     margin-right: 30px;
   }
 }

@@ -1,0 +1,41 @@
+@import '../../theme/theme.scss';
+
+.pm-wrapper {
+  @include themed() {
+    color: t('text-color');
+    background: t('navbar-bg-color');
+  }
+    min-height: 100%;
+    display: grid;
+    // grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "sidebar user-dashboard";
+      // "sidebar-collapsed main";
+    // transition: margin-left .5s;
+
+    &__collapsed {
+      display: grid;
+      grid-template-columns: 300px auto;
+      // transition: 300px ease-in-out;
+      // transition-duration: 300ms;
+
+      min-height: 100%;
+      @include themed() {
+        color: t('text-color');
+        background: t('navbar-bg-color');
+    }
+    }
+
+    &__not-collapsed {
+      display: grid;
+      grid-template-columns: 64px auto;
+      transition: 64px ease-in-out;
+      transition-duration: 300ms;
+
+      min-height: 100%;
+      @include themed() {
+        color: t('text-color');
+        background: t('navbar-bg-color');
+    }
+    }
+}

@@ -1,0 +1,31 @@
+@import "../../theme/theme";
+@import "../../shared/styles/theme.scss";
+
+.pm-title {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    @include themed() {
+        color: t('text-color');
+        background: t('navbar-bg-color');
+    }
+    border: none;
+    border-radius: $title-radius;
+    // width: 95%;
+    padding: 10px 10px 0px 10px;
+    align-items: center;
+    height: $medium-height;
+
+    &__welcome {
+        font-size: $h5;
+        font-weight: bold;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    &__name {
+        font-size: $h5;
+        font-weight: bold;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+}

@@ -1,10 +1,115 @@
-@import '../../theme/theme.scss';
+@import "../../theme/_theme.scss";
+@import "../../shared/styles/theme.scss";
 
-.user-dashboard {
-    @include themed() {
-        color: t('text-color');
-        background: t('bg-color');
-      }
+.pm-user-dashboard {
+    display: grid;
+    grid-area: "user-dashboard";
+    grid-column-start: 2;
+    grid-column-end: 3;
     min-height: 100%;
-    display: flex;
+  
+    @include themed() {
+      color: t('text-color');
+      background: t('bg-color');
+    }
+
+    &__body {
+        margin: 0px $body-margin 0px $body-margin;
+        display: grid;
+        grid-template-rows: 1fr 1fr 3fr 5fr;
+    }
+
+    &__roles {
+        border-radius: $title-radius;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100%;
+    }
+
+    &__title {
+        font-size: $h5;
+        font-weight: bold;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        display: flex;
+        justify-content: center;
+        border-radius: $title-radius;
+        height: 40px;
+        align-items: center;
+        @include themed() {
+            color: t('text-color');
+            background: t('title-bg-color');
+        }
+    }
+
+    &__roles-items {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        border-radius: $title-radius;
+        height: 80%;
+
+        @include themed() {
+            color: t('text-color');
+            background: t('navbar-bg-color');
+        }
+    }
+
+    &__nav-text {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 0px 0px 15px;
+          height: $mini-height;
+    }
+
+    &__assigned-roles {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        display: grid;
+        grid-template-rows: 1fr 5fr;
+        margin-right: 10px;
+    }
+
+    &__available-roles {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-rows: 1fr 5fr;
+        margin-left: 10px;
+    }
+
+    &__role {
+        // padding-top: 5px;
+        font-size: $body-text-size;
+        padding: 15px 0px 0px 15px;
+    }
+
+    &__table {
+        grid-row-start: 4;
+        grid-row-end: 5;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__personal-info {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        display: grid;
+        grid-template-rows: 1fr 5fr;
+        margin-right: 10px;
+    }
+
+    &__user-info {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-rows: 1fr 5fr;
+        margin-left: 10px;
+    }
+
 }

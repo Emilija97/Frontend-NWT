@@ -14,7 +14,7 @@ function HomePage() {
 
   const handleClick = () => {
     dispatch(getUser(userKeycloakId as string));
-    navigate("/users")
+    navigate("/dashboard")
   }
 
     
@@ -29,16 +29,18 @@ function HomePage() {
 
   return (
     <div className="home-page">
-      <PMHeader backArrow={true} logo={true} themeToggle={true} title="EMILY - Project Management" />
+      <PMHeader backArrow={false} logout={true} logo={true} title="EMILY - Project Management" />
       <div className="home-page__body">
-        <div className="home-page__body-title">Welcome to Project Management Dashboard! </div>
+        <div className="home-page__body-title">Welcome to the Project Management Dashboard! </div>
         <div className="home-page__welcome-text">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout.
+        “A goal without a plan is just a wish.”
+        <p>
+        — Antoine de Saint-Exupéry
+        </p>
         </div>
         <div className="home-page__auth">
           <button onClick={handleClick} className="pm-button pm-button--medium pm-button--full-width
-              pm-button__contained pm-button__contained--primary">{username}</button>
+              pm-button__contained pm-button__contained--primary">Go on Agile Board</button>
         </div>
       </div>
     </div>
