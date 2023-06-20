@@ -6,6 +6,7 @@ export interface User {
   keycloakId: string;
   cardIds: string[];
   organizationId: string;
+  organizationName: string;
   roles: number[];
   projectIds: string[];
   teamIds: string[];

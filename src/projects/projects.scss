@@ -1,0 +1,15 @@
+@import "../theme/theme";
+@import "../shared/styles/theme.scss";
+
+.pm-projects {
+    display: grid;
+    grid-area: "projects";
+    grid-column-start: 2;
+    grid-column-end: 3;
+    min-height: 100%;
+  
+    @include themed() {
+      color: t('text-color');
+      background: t('bg-color');
+    }
+}

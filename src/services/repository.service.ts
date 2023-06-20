@@ -51,6 +51,7 @@ export function getOne<T>(url: string): Observable<T> {
 }
 
 export function getAll<T>(url: string): Observable<T[]> {
+  console.log("u get all");
   return fetchApi("GET", url).pipe(
     switchMap((response) => from(response.json() as Promise<T[]>))
   );
