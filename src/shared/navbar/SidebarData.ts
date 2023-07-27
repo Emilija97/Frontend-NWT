@@ -2,6 +2,7 @@ import {
   DashboardImage,
   HomeImage,
   ProjectsImage,
+  RightArrowImage,
   SettingsImage,
   TasksImage,
 } from "../../assets";
@@ -45,8 +46,9 @@ export const sidebarItems: SidebarItems[] = [
   },
   // {
   //   title: "Settings",
-  //   imageSrc: SettingsImage,
+  //   imageSrc: RightArrowImage,
   //   url: "/",
   //   cName: "pm-navbar__nav-text",
+  //   tabValue: 3,
   // },
 ];

@@ -122,6 +122,14 @@
         height: 40px;
       }
 
+      &--arrow {
+        @include themed() {
+          background: t('button-icon-bg-color');
+        }
+        width: 15px;
+        height: 10px;
+      }
+
       &--icon-header {
         @include themed() {
           background: t('button-icon-header-bg-color');

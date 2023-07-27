@@ -9,7 +9,7 @@ import keycloak from '../../keycloak';
 import './pm-wrapper.scss';
 import PMNavbar from '../navbar/PMNavbar';
 import UserDashboard from '../../users/components/UserDashboard';
-import Projects from '../../projects/Projects';
+import Projects from '../../projects/components/Projects';
 import Tasks from '../../tasks/Tasks';
 import Settings from '../../settings/Settings';
 
@@ -23,10 +23,6 @@ enum PMView {
 function PMWrapper() {
 
     const dispatch = useDispatch();
-
-    // const users: User[] = useSelector(
-    //     (state:RootState) => selectUsers(state)
-    // )
     const [navbarCollapsed, setNavbarCollapsed] = useState(false);
     const [selectedTab, setSelectedTab] = useState(0);
     // const [userKeycloakId,] = useState(localStorage.getItem("userKeycloakId"))
@@ -44,7 +40,7 @@ function PMWrapper() {
     //         dispatch(getUser(keycloak.getParsedToken()?.sub as string));
     // }, [dispatch]) 
 
-    const onTabChange = (tabValue:any) => {
+    const onTabChange = (tabValue: any) => {
         setSelectedTab(tabValue);
     }
 
@@ -58,14 +54,14 @@ function PMWrapper() {
 
     return (
         <div className={`pm-wrapper${navbarCollapsed ? `__collapsed` : `__not-collapsed`}`}>
-            <PMNavbar collapsed={navbarCollapsed} setCollapsed={setNavbarCollapsed} setTab={onTabChange}/>
-        {/* <div className='user-dashboard'>
+            <PMNavbar collapsed={navbarCollapsed} setCollapsed={setNavbarCollapsed} setTab={onTabChange} />
+            {/* <div className='user-dashboard'>
             {keycloak.getAuth() && user !== null ?
                <div className='user-dashboard__info'><h1>{user.name}</h1>
                <h2>{user.email}</h2></div>
             : "Loading"}
         </div> */}
-        {console.log(selectedTab)}
+            {console.log(selectedTab)}
             {renderSelectedTab()}
         </div>
     )

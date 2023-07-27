@@ -22,42 +22,47 @@ $navbar-bg--light: #f1d5cb;
 // $title-bg--light: #eac7d9;
 $title-bg--dark: #c33506;
 $title-bg--light: #d57251;
+$expandable-menu-bg--dark: #1f2123;
+$expandable-menu-bg--light: #fff;
 
 $themes: (
-    light: (
-        bg-color: $bg--light,
-        text-color: $text--light,
-        border-color: $border--light,
-        button-bg-color: $button--bg--light,
-        toggle-btn-selected-color: $toggle-btn--selected--light,
-        toggle-btn-inactive-color: $toggle-btn--inactive--light,
-        navbar-bg-color: $navbar-bg--light,
-        button-icon-bg-color: $button-icon-bg--light,
-        title-bg-color: $title-bg--light,
-        button-icon-header-bg-color: $button-icon-header-bg--light
-    ),
-    dark: (
-        bg-color: $bg--dark,
-        text-color: $text--dark,
-        border-color: $border--dark,
-        button-bg-color: $button--bg--dark,
-        toggle-btn-selected-color: $toggle-btn--selected--dark,
-        toggle-btn-inactive-color: $toggle-btn--inactive--dark,
-        navbar-bg-color: $navbar-bg--dark,
-        button-icon-bg-color: $button-icon-bg--dark,
-        title-bg-color: $title-bg--dark,
-        button-icon-header-bg-color: $button-icon-header-bg--dark
-    ),
+  light: (bg-color: $bg--light,
+    text-color: $text--light,
+    border-color: $border--light,
+    button-bg-color: $button--bg--light,
+    toggle-btn-selected-color: $toggle-btn--selected--light,
+    toggle-btn-inactive-color: $toggle-btn--inactive--light,
+    navbar-bg-color: $navbar-bg--light,
+    button-icon-bg-color: $button-icon-bg--light,
+    title-bg-color: $title-bg--light,
+    button-icon-header-bg-color: $button-icon-header-bg--light,
+    expandable-menu-bg-color: $expandable-menu-bg--light ),
+  dark: (bg-color: $bg--dark,
+    text-color: $text--dark,
+    border-color: $border--dark,
+    button-bg-color: $button--bg--dark,
+    toggle-btn-selected-color: $toggle-btn--selected--dark,
+    toggle-btn-inactive-color: $toggle-btn--inactive--dark,
+    navbar-bg-color: $navbar-bg--dark,
+    button-icon-bg-color: $button-icon-bg--dark,
+    title-bg-color: $title-bg--dark,
+    button-icon-header-bg-color: $button-icon-header-bg--dark,
+    expandable-menu-bg-color: $expandable-menu-bg--dark ),
 );
 
 @mixin themed() {
-  @each $theme, $map in $themes {
+
+  @each $theme,
+  $map in $themes {
     .theme--#{$theme} & {
       $theme-map: () !global;
-      @each $key, $submap in $map {
+
+      @each $key,
+      $submap in $map {
         $value: map-get(map-get($themes, $theme), '#{$key}');
         $theme-map: map-merge($theme-map, ($key: $value)) !global;
       }
+
       @content;
       $theme-map: null !global;
     }

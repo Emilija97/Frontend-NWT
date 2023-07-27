@@ -4,6 +4,8 @@ import './pm-header.scss'
 import PMIconButton from '../icon-button/PMIconButton';
 import { LogoImage, BackArrowImage, LogoutImage } from '../../assets';
 import keycloak from "../../keycloak";
+import { useDispatch } from 'react-redux';
+import { logout } from '../../users/store/actions';
 
 interface IPMHeader {
   backArrow: boolean,
@@ -17,6 +19,7 @@ interface IPMHeader {
 
 function PMHeader(props: IPMHeader) {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleBackClick = () => {
         if (props.url)
@@ -27,6 +30,8 @@ function PMHeader(props: IPMHeader) {
 
     const handleLogOut = () => {
         keycloak.doLogout();
+        localStorage.clear();
+        dispatch(logout())
     }
 
     const titleStyle = (): string => {

@@ -26,7 +26,7 @@ function reducer(state = initialState, action: TeamsActions) {
       };
     }
     case TeamActionTypes.GET_TEAM_SUCCESS: {
-      console.log("u reducer-u");
+      console.log("u reducer-u team");
       console.log(action.team);
       console.log(state);
       const newState = {

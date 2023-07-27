@@ -1,0 +1,51 @@
+@import "../../theme/_theme.scss";
+@import "../../shared/styles/theme.scss";
+
+.pm-expandable-menu {
+    position: relative;
+    margin-right: 20px;
+
+    @include themed() {
+        color: t('text-color');
+    }
+
+    &__button {
+        font-size: 16px;
+        border: none;
+        background: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 200px;
+
+        @include themed() {
+            color: t('text-color');
+        }
+    }
+
+    &__arrow {
+        width: 15px;
+        height: 10px;
+    }
+
+    &__list {
+        position: absolute;
+        width: 200px;
+        list-style: none;
+        border: solid 1px;
+
+        @include themed() {
+            color: t('text-color');
+            border-color: t('navbar-bg-color');
+            background: t('expandable-menu-bg-color');
+        }
+    }
+
+    li:hover {
+        cursor: pointer;
+
+        @include themed() {
+            background: t('toggle-btn-inactive-color');
+        }
+    }
+}

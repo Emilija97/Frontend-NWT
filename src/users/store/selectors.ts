@@ -16,3 +16,7 @@ export const selectUser = (
   const foundUser = userId ? state.users.byId[userId] : null;
   return foundUser;
 };
+
+export const selectUserById = (state: RootState, userId: string) => {
+  return state.users.byId[userId];
+}

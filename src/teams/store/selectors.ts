@@ -6,6 +6,6 @@ export const selectTeams = (state: RootState): Team[] => {
 };
 
 export const selectTeam = (state: RootState, teamId: string): Team => {
-  console.log("u selectoru");
+  console.log("u selectoru team " + teamId);
   return state.teams.byId[teamId];
 };

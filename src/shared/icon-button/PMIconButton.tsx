@@ -12,7 +12,7 @@ interface IconButtonProps {
 function PMIconButton(props: IconButtonProps) {
   return (
     <button className={"pm-icon-button pm-button pm-button__circle " + props.className}>
-      <img hidden={props.hidden} alt="Back" src={props.srcIcon} onClick={props.onClick} />
+      <img hidden={props.hidden} alt="Back" src={props.srcIcon} onClick={props.onClick} className='pm-icon-button__img'/>
     </button>
   );
 }

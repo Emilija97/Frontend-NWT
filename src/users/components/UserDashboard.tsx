@@ -27,113 +27,120 @@ function UserDashboard() {
 
     useEffect(() => {
         console.log(keycloak.getAuth())
-        if(keycloak.getAuth()) {
+        if (keycloak.getAuth()) {
             dispatch(getUser(keycloak.getParsedToken()?.sub as string));
             dispatch(loadTeamsInit())
         }
     }, [dispatch])
 
+    // const hasRole = (roles: number[]) => roles.includes(Roles.SYSTEM_ADMIN)
+    // {hasRole(user.roles) ? (
+    //     <button onClick={() => console.log('Admin Button Clicked')}>Admin Button</button>
+    // ):(
+    //     <button onClick={() => console.log('User Button Clicked')}>User Button</button>
+    // )}
+
     return (
         <div className='pm-user-dashboard'>
-        {keycloak.getAuth() && user !== null ?
-            (
-            <div className="pm-user-dashboard__body">
-                <PMHeader backArrow={false} logout={false} logo={false} title="User Dashboard" className="pm-header__title--large"/>
-                <PMTitle name={user.name}/>
+            {keycloak.getAuth() && user !== null ?
+                (
+                    <div className="pm-user-dashboard__body">
+                        <PMHeader backArrow={false} logout={false} logo={false} title="User Dashboard" className="pm-header__title--large" />
+                        <PMTitle name={user.name} />
 
-                <div className="pm-user-dashboard__roles">
-                    <div className="pm-user-dashboard__assigned-roles">
-                        <div className="pm-user-dashboard__title">Roles Assigned By User</div>
-                        <ul className="pm-user-dashboard__roles-items">
-                            {user.roles.map((item, index) => {
-                            return (
-                                <li key={index} className="pm-user-dashboard__nav-text">
-                                    <div className="pm-user-dashboard__role">{rolesMapByNumber.get(item)}</div>
-                                </li>
-                            );
-                            })}
-                        </ul>
-                    </div>
-                    <div className="pm-user-dashboard__available-roles">
-                        <div className="pm-user-dashboard__title">List of Available Roles</div>
-                        <ul className="pm-user-dashboard__roles-items">
-                            {rolesArray.map((item, index) => {
-                            return (
-                                <li key={index} className="pm-user-dashboard__nav-text">
-                                    <div className="pm-user-dashboard__role">{rolesMapByNumber.get(item)}</div>
-                                </li>
-                            );
-                            })}
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="pm-user-dashboard__table">
-                    <div className="pm-user-dashboard__personal-info">
-                        <div className="pm-user-dashboard__title">Personal Information</div>
-                        <div className="pm-user-dashboard__info">
-                            <div className="pm-user-dashboard__info-pair">
-                                <div className="pm-user-dashboard__info-pair--property">Username: </div>
-                                <div className="pm-user-dashboard__info-pair--value">{user.username}</div>
-                            </div>
-                            <div className="pm-user-dashboard__info-pair">
-                                <div className="pm-user-dashboard__info-pair--property">Organization: </div>
-                                <div className="pm-user-dashboard__info-pair--value">{user.organizationName}</div>
-                            </div>
-                            <div className="pm-user-dashboard__info-pair">
-                                <div className="pm-user-dashboard__info-pair--property">Email: </div>
-                                <div className="pm-user-dashboard__info-pair--value">{user.email}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="pm-user-dashboard__user-info">
-                        <div className="pm-user-dashboard__team-dash">
-                            <div className="pm-user-dashboard__title">Teams</div>
-                            {teams.length !== 0 ? 
-                                (
-                                    <ul className="pm-user-dashboard__team-items">
-                                    {teams.map((item, index) => {
-                                    return (
-                                        <li key={index} className="pm-user-dashboard__nav-text">
-                                            <div className="pm-user-dashboard__team">{item.name}</div>
-                                        </li>
-                                    );
-                                    })}
-                            </ul>
-                                )
-                            : "There is no team"}
-                        </div>
-
-                        <div className="pm-user-dashboard__project-dash">
-                            <div className="pm-user-dashboard__title">Projects</div>
-                            {teams.length !== 0 ? 
-                                (
-                                    <ul className="pm-user-dashboard__project-items">
-                                    {teams.map((item, index) => {
+                        <div className="pm-user-dashboard__roles">
+                            <div className="pm-user-dashboard__assigned-roles">
+                                <div className="pm-user-dashboard__title">Roles Assigned By User</div>
+                                <ul className="pm-user-dashboard__roles-items">
+                                    {user.roles.map((item, index) => {
                                         return (
-                                            <li key={index}>
-                                                <div className="pm-user-dashboard__project">
-                                                    <div className="pm-user-dashboard__project--property">Team: </div>
-                                                    <div className="pm-user-dashboard__project--value">{item.name}</div>
-                                                </div>
-                                            {item.projectNames.map((project, projectIndex) => {
-                                                return(
-                                                    <li key={projectIndex} className="pm-user-dashboard__nav-text">
-                                                        <div className="pm-user-dashboard__project--sub-text">{project}</div>
-                                                    </li>
-                                                )
-                                            })}
-                                        </li>)
+                                            <li key={index} className="pm-user-dashboard__nav-text">
+                                                <div className="pm-user-dashboard__role">{rolesMapByNumber.get(item)}</div>
+                                            </li>
+                                        );
                                     })}
-                            </ul>
-                                )
-                            : "There is no team"}
+                                </ul>
+                            </div>
+                            <div className="pm-user-dashboard__available-roles">
+                                <div className="pm-user-dashboard__title">List of Available Roles</div>
+                                <ul className="pm-user-dashboard__roles-items">
+                                    {rolesArray.map((item, index) => {
+                                        return (
+                                            <li key={index} className="pm-user-dashboard__nav-text">
+                                                <div className="pm-user-dashboard__role">{rolesMapByNumber.get(item)}</div>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="pm-user-dashboard__table">
+                            <div className="pm-user-dashboard__personal-info">
+                                <div className="pm-user-dashboard__title">Personal Information</div>
+                                <div className="pm-user-dashboard__info">
+                                    <div className="pm-user-dashboard__info-pair">
+                                        <div className="pm-user-dashboard__info-pair--property">Username: </div>
+                                        <div className="pm-user-dashboard__info-pair--value">{user.username}</div>
+                                    </div>
+                                    <div className="pm-user-dashboard__info-pair">
+                                        <div className="pm-user-dashboard__info-pair--property">Organization: </div>
+                                        <div className="pm-user-dashboard__info-pair--value">{user.organizationName}</div>
+                                    </div>
+                                    <div className="pm-user-dashboard__info-pair">
+                                        <div className="pm-user-dashboard__info-pair--property">Email: </div>
+                                        <div className="pm-user-dashboard__info-pair--value">{user.email}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pm-user-dashboard__user-info">
+                                <div className="pm-user-dashboard__team-dash">
+                                    <div className="pm-user-dashboard__title">Teams</div>
+                                    {teams.length !== 0 ?
+                                        (
+                                            <ul className="pm-user-dashboard__team-items">
+                                                {teams.map((item, index) => {
+                                                    return (
+                                                        <li key={2 * index * index} className="pm-user-dashboard__nav-text">
+                                                            <div className="pm-user-dashboard__team">{item.name}</div>
+                                                        </li>
+                                                    );
+                                                })}
+                                            </ul>
+                                        )
+                                        : "There is no team"}
+                                </div>
+
+                                <div className="pm-user-dashboard__project-dash">
+                                    <div className="pm-user-dashboard__title">Projects</div>
+                                    {teams.length !== 0 ?
+                                        (
+                                            <ul className="pm-user-dashboard__project-items">
+                                                {teams.map((item, index) => {
+                                                    return (
+                                                        <li key={index}>
+                                                            <div className="pm-user-dashboard__project">
+                                                                <div className="pm-user-dashboard__project--property">Team: </div>
+                                                                <div className="pm-user-dashboard__project--value">{item.name}</div>
+                                                            </div>
+                                                            {item.projectNames.map((project, projectIndex) => {
+                                                                return (
+                                                                    <li key={(projectIndex + index) * index} className="pm-user-dashboard__nav-text">
+                                                                        <div className="pm-user-dashboard__project--sub-text">{project}</div>
+                                                                    </li>
+                                                                )
+                                                            })}
+                                                        </li>)
+                                                })}
+                                            </ul>
+                                        )
+                                        : "There is no team"}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            )
-            : ("Loading")}
+                )
+                : ("Loading")}
         </div>
     )
 }

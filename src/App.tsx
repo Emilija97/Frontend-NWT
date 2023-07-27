@@ -7,13 +7,14 @@ import { Provider } from 'react-redux';
 import DefinedRoutes from './routing/DefinedRoutes';
 import ThemeProvider from './theme/ThemeProvider';
 import ThemeSetter from './theme/ThemeSetter';
+import 'chart.js/auto';
 
 
 function App() {
   return (
-      <Provider store={store}>
-        <DefinedRoutes></DefinedRoutes>
-      </Provider>
+    <Provider store={store}>
+      <DefinedRoutes></DefinedRoutes>
+    </Provider>
   );
 }
 

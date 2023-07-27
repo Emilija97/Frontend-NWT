@@ -11,3 +11,7 @@ export function apiLoadUsers(): Observable<User[]> {
 export function apiGetUser(keycloakId: string): Observable<User> {
   return getOne<User>(`${USERS_URL}/${keycloakId}`);
 }
+
+export function apiFindUser(userId: string): Observable<User> {
+  return getOne<User>(`${USERS_URL}/user/${userId}`);
+}

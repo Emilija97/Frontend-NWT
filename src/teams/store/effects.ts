@@ -31,7 +31,7 @@ const getTeamEpic = (
   return action$.pipe(
     ofType(TeamActionTypes.GET_TEAM),
     switchMap((action) =>
-      apiGetTeam(action.teamId).pipe(map((Team) => getTeamSuccess(Team)))
+      apiGetTeam(action.teamId).pipe(map((team) => getTeamSuccess(team)))
     )
   );
 };

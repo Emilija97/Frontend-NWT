@@ -1,0 +1,212 @@
+@import "../../theme/theme";
+@import "../../shared/styles/theme.scss";
+
+.pm-projects {
+  display: grid;
+  grid-area: "projects";
+  grid-column-start: 2;
+  grid-column-end: 3;
+  min-height: 100%;
+
+  @include themed() {
+    color: t('text-color');
+    background: t('bg-color');
+  }
+
+  &__body {
+    margin: 0px $body-margin 0px $body-margin;
+    display: grid;
+    grid-template-rows: 1fr 5fr 5fr;
+  }
+
+  &__header {
+    padding-top: $body-margin;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  &__navigation {
+    // display: grid;
+    // grid-template-columns: 1fr 6fr;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include themed() {
+      color: t('text-color');
+      border-color: t('navbar-bg-color');
+    }
+
+    // border: none;
+    border: solid 2px;
+    border-radius: $title-radius;
+    // width: 95%;
+    padding: 10px 10px 0px 10px;
+    align-items: center;
+    height: $medium-height;
+
+    &--text {
+      font-size: $h5;
+      font-weight: bold;
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+
+    &--name {
+      font-size: $h5;
+      font-weight: bold;
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+  }
+
+  &__project-info {
+    border-radius: $title-radius;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    height: 100%;
+    padding-top: 15px;
+  }
+
+  &__title {
+    font-size: $h5;
+    font-weight: bold;
+    // grid-row-start: 1;
+    // grid-row-end: 2;
+    display: flex;
+    justify-content: center;
+    border-radius: $title-radius;
+    height: 60px;
+    align-items: center;
+
+    @include themed() {
+      color: t('text-color');
+      background: t('title-bg-color');
+    }
+  }
+
+  &__description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include themed() {
+      color: t('text-color');
+      border-color: t('navbar-bg-color');
+    }
+
+    // border: none;
+    border: solid 2px;
+    border-radius: $title-radius;
+  }
+
+  &__info {
+    margin-left: 10px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding-top: 15px;
+  }
+
+  &__info-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  &__info-key {
+    width: 150px;
+    font-size: $h5;
+    font-weight: 500;
+  }
+
+  &__info-value {
+    font-size: $body-text-size;
+  }
+
+  &__chart-container {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    width: 300px;
+    height: 300px;
+    margin-left: 60px // margin: 20px auto;
+  }
+
+  &__roles-items {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border-radius: $title-radius;
+    height: 80%;
+
+    @include themed() {
+      color: t('text-color');
+      background: t('navbar-bg-color');
+    }
+  }
+
+  &__nav-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px 0px 15px;
+    height: $mini-height;
+
+    &--styled {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0px 0px 15px;
+      height: $mini-height;
+      list-style-type: circle;
+    }
+  }
+
+  &__assigned-roles {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    margin-right: 10px;
+  }
+
+  &__add {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__member {
+    width: 200px;
+    height: 60px;
+    font-size: $body-text-size;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: $title-radius;
+    border: solid 2px;
+    background: transparent;
+
+    @include themed() {
+      color: t('text-color');
+      border-color: t('navbar-bg-color');
+    }
+  }
+
+  &__member:hover {
+    @include themed() {
+      color: t('text-color');
+      background: t('navbar-bg-color');
+    }
+  }
+
+  &__add-icon {
+    width: 20px;
+    height: 20px;
+  }
+}

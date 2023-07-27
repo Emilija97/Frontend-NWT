@@ -39,6 +39,21 @@ function reducer(state = initialState, action: UsersActions) {
       console.log(newState);
       return newState;
     }
+    case UserActionTypes.FIND_USER_SUCCESS: {
+      const newState = {
+        ...state,
+        allIds: [...state.allIds, action.user.id],
+        byId: {
+          ...state.byId,
+          [action.user.id]: action.user,
+        },
+      };
+      console.log(newState);
+      return newState;
+    }
+    case UserActionTypes.LOGOUT_USER: {
+      return { ...initialState };
+    }
     default: {
       return state;
     }

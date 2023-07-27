@@ -4,7 +4,7 @@
     height: 50px;
     width: 200px;
     border-radius: 25px;
-    margin: auto;
+    // margin: auto;
     position: relative;
     display: flex;
     @include themed() {
@@ -13,8 +13,9 @@
     }
 
     &__image {
-        height: 45px;
-        width: 45px;
+        height: 30px;
+        width: 30px;
+        margin-left: 15px;
         border-radius: 50%;
         z-index: 1;
         transition: all 0.3s ease;
@@ -45,6 +46,7 @@
     &__text {
         display: flex;
         flex: 1;
+        margin-left: 5px;
         @include themed() {
             color: t('text-color');
         }
@@ -52,7 +54,7 @@
 
     &__status-selected {
         border-radius: 25px;
-        margin: auto;
+        // margin: auto;
         position: relative;
         @include themed() {
             background: t('toggle-btn-selected-color');

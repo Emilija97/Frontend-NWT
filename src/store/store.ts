@@ -12,15 +12,18 @@ import { usersEpics } from "../users/store/effects";
 import { UserReducer } from "../users/store/reducer";
 import { TeamReducer } from "../teams/store/reducer";
 import { teamsEpics } from "../teams/store/effects";
+import { ProjectReducer } from "../projects/store/reducer";
+import { projectsEpics } from "../projects/store/effects";
 
 export type ProjectManagementEpic = Epic<any, Action, RootState, any>;
 
 const rootReducer = combineReducers({
   users: UserReducer,
   teams: TeamReducer,
+  projects: ProjectReducer,
 });
 
-const rootEpic = combineEpics(...usersEpics, ...teamsEpics);
+const rootEpic = combineEpics(...usersEpics, ...teamsEpics, ...projectsEpics);
 
 export type RootState = ReturnType<typeof rootReducer>;
 

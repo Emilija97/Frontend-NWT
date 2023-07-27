@@ -60,12 +60,20 @@
     }
 
     &__nav-text {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 15px 0px 0px 15px;
-          height: $mini-height;
-          
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0px 0px 15px;
+        height: $mini-height;
+
+        &--styled {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0px 0px 15px;
+            height: $mini-height;
+            list-style-type: circle;
+        }
     }
 
     &__assigned-roles {
@@ -147,8 +155,11 @@
         }
 
         &--sub-text {
-            list-style-type: circle;
+            display: list-item;
+            margin-left: 45px;
+            list-style-type: disc;
             font-size: $body-text-size;
+            // padding-left: 25px;
         }
     }
 

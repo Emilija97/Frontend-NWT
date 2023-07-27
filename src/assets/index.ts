@@ -9,6 +9,11 @@ import ProjectsImage from "./images/projects.png";
 import TasksImage from "./images/tasks.png";
 import HomeImage from "./images/home.png";
 import LogoutImage from "./images/logout.png";
+import RightArrowImage from "./images/right-arrow.png";
+import UpArrowImage from "./images/up-arrorw.png";
+import DownArrowImage from "./images/down-arrow.png";
+import DownArrowWhiteImage from "./images/down-arrow-white.png";
+import AddImage from "./images/plus.png";
 
 export {
   LogoImage,
@@ -22,4 +27,9 @@ export {
   TasksImage,
   HomeImage,
   LogoutImage,
+  RightArrowImage,
+  UpArrowImage,
+  DownArrowImage,
+  DownArrowWhiteImage,
+  AddImage
 };
